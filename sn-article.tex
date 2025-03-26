@@ -1,0 +1,765 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{lscape}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Article Title}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Puja} \sur{Cholke}}\email{puja.cholke@vit.edu}
+
+\author[1]{\fnm{Ishan} \sur{Shivankar}}\email{ishan.shivankar@vit.edu}
+
+\author[1]{\fnm{Bhairavi} \sur{Shirsath}}\email{bhairavi.shirsath@vit.edu}
+
+\author[1]{\fnm{Tanishk} \sur{Shrivastava}}\email{tanishk.shrivastava@vit.edu}
+
+\author[1]{\fnm{Suraj} \sur{Chavan}}\email{suraj.chavan@vit.edu}
+
+\author[1]{\fnm{Prathmesh} \sur{Sonawane}}\email{prathmesh.sonawane@vit.edu}
+
+\affil*[1]{\orgdiv{Dept. of Information Technology}, \orgname{Vishwakarma Institute of Technology}, \orgaddress{\city{Pune}, \country{India}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Background on Epilepsy}
+
+Epilepsy represents one of humanity's most enduring neurological challenges, documented across civilizations for millennia, yet still presenting substantial medical and social burdens in the modern era. This chronic neurological disorder is characterized by recurrent, unprovoked seizures resulting from abnormal, excessive, or synchronous neuronal activity in the brain. According to the World Health Organization (WHO), epilepsy affects approximately 50 million people worldwide \citep{WHO2022}, making it one of the most prevalent neurological conditions globally. The incidence rate shows notable geographic variation, with higher rates in low and middle-income countries (49 per 100,000 person-years) compared to high-income nations (45 per 100,000 person-years) \citep{Fiest2017}.
+
+Epilepsy is not a singular condition but encompasses a spectrum of disorders with diverse etiologies, manifestations, and prognoses. The International League Against Epilepsy (ILAE) classification system categorizes seizures into focal onset (originating in networks limited to one hemisphere), generalized onset (originating at some point within and rapidly engaging bilaterally distributed networks), and unknown onset \citep{Fisher2017}. Each category further subdivides based on awareness levels and motor symptoms. This heterogeneity presents significant challenges for diagnosis, monitoring, and treatment.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Lead Team Sales Team.png}
+    \caption{Classification of epileptic seizures according to the ILAE 2017 framework, showing the hierarchical organization of seizure types.}
+    \label{fig:ilae_classification}
+\end{figure}
+
+The personal impact of epilepsy extends far beyond the seizure events themselves. Patients face substantial psychosocial challenges including stigma, discrimination, educational difficulties, unemployment, and reduced quality of life. Nearly 80\% of people with epilepsy reside in low and middle-income countries, where treatment gaps can exceed 75\% in rural areas \citep{Meyer2010}. Furthermore, people with epilepsy face a mortality rate 2-3 times higher than the general population, with Sudden Unexpected Death in Epilepsy (SUDEP) accounting for up to 17\% of all epilepsy-related deaths \citep{Devinsky2016}.
+
+Standard clinical epilepsy management typically involves continuous video-EEG monitoring in specialized epilepsy monitoring units (EMUs). Neurologists visually analyze EEG recordings, identifying characteristic epileptiform patterns including spikes, sharp waves, and rhythmic discharges that may signify seizure activity. This process demands significant expertise, with the International Federation of Clinical Neurophysiology requiring at least 6 months of specialized training for competent EEG interpretation \citep{Seeck2017}.
+
+\subsection{Significance of Automated Seizure Detection}
+
+Traditional seizure detection relies heavily on visual inspection of electroencephalogram (EEG) recordings by trained neurologists—a process that faces multiple critical limitations. This manual approach is extraordinarily time-intensive; neurologists typically spend 2-4 hours reviewing a 24-hour EEG recording, with longer durations for complex cases \citep{Beniczky2020}. Studies have documented inter-observer agreement rates as low as 56\% for certain seizure types, highlighting the subjective nature of visual EEG interpretation \citep{Halford2015}. Additionally, the global shortage of neurologists—with an average of only 0.1 per 100,000 people in low-income countries compared to 4.8 per 100,000 in high-income countries—creates a substantial diagnostic bottleneck \citep{WFN2021}.
+
+Automated seizure detection systems offer transformative advantages across multiple dimensions:
+
+\begin{enumerate}
+    \item \textbf{Continuous monitoring without human fatigue}: Unlike human interpreters whose attention inevitably wanes, computational systems maintain consistent vigilance across extended periods. Research demonstrates that neurologist accuracy decreases by approximately 7\% after reviewing EEG recordings for more than 3 consecutive hours \citep{Benbadis2009}.
+    \item \textbf{Early warning systems for patients and caregivers}: Automated systems can potentially detect seizure onset seconds to minutes before clinical manifestations, providing critical intervention windows. A meta-analysis of seizure forecasting studies found potential prediction horizons ranging from 5 seconds to 5 minutes with acceptable sensitivity \citep{Kuhlmann2018}.
+    \item \textbf{Objective quantification of seizure frequency and patterns}: Automated detection enables longitudinal tracking of seizure metrics impossible with traditional methods. Studies show that patient self-reporting may miss over 50\% of seizures, particularly nocturnal events and those with impaired awareness \citep{Blachut2017}.
+    \item \textbf{Remote monitoring capabilities}: Particularly valuable for patients in resource-limited settings, remote monitoring can extend specialized care to underserved regions. Telemedicine-based epilepsy care combined with automated detection has reduced hospital admissions by up to 43\% in pilot programs \citep{SanchezAlvarez2018}.
+    \item \textbf{Potential for closed-loop intervention systems}: Perhaps most promising are systems that not only detect but respond to seizures. Early clinical trials of responsive neurostimulation using automated seizure detection have demonstrated seizure reduction rates of 44-75\% in previously treatment-resistant cases \citep{Nair2020}.
+\end{enumerate}
+
+
+The economic implications of improved seizure detection are substantial. Epilepsy imposes an estimated annual economic burden of \$15.5 billion in direct and indirect costs in the United States alone \citep{Begley2015}. Studies suggest that timely seizure detection and intervention could reduce emergency department visits by up to 38\% and hospitalizations by 23\%, translating to significant healthcare savings \citep{Jory2019}.
+
+\subsection{Evolution of Detection Approaches}
+
+The history of seizure detection technology represents a remarkable trajectory of increasing sophistication, mirroring broader advances in signal processing, computational methods, and hardware capabilities. This evolution spans over five decades of progressive innovation, with each generation addressing limitations of previous approaches.
+
+Early detection methods (1970s-1980s) relied primarily on simple thresholding techniques based on EEG amplitude and frequency. Gotman’s pioneering work in 1982 introduced algorithms detecting large-amplitude rhythmic discharges and spike patterns, achieving sensitivity around 70\% but with high false positive rates of 2-3 per hour \citep{Gotman1982}. These approaches employed straightforward signal processing metrics including root mean square amplitude, line length, and zero-crossings—computationally efficient but lacking robustness across different seizure types and patients.
+
+The 1990s saw the emergence of more sophisticated statistical feature extraction approaches to capture the complex temporal and spectral characteristics of seizure activity. Time-frequency analysis methods including short-time Fourier transform and wavelet decomposition provided multi-resolution perspectives on EEG dynamics. Osorio et al. (1998) demonstrated improved detection performance (85\% sensitivity, 0.8 false positives per hour) by combining spectral analysis with contextual processing \citep{Osorio1998}. These methods better characterized the non-stationary nature of EEG signals but still required substantial expert-guided feature engineering.
+
+Traditional machine learning algorithms introduced pattern recognition capabilities in the early 2000s, marking a significant paradigm shift. Support vector machines, decision trees, and artificial neural networks enabled systems to learn seizure patterns from labeled examples. The work of Shoeb and Guttag (2010) using SVM classifiers achieved patient-specific detection sensitivities of 96\% with false positive rates below 0.5 per hour \citep{Shoeb2010}. These approaches required carefully designed feature extraction pipelines but demonstrated the power of statistical learning for seizure characterization.
+
+% Requires: \usepackage{rotating}
+
+\begin{landscape}
+\begin{longtable}{|p{1.2cm}|p{1.5cm}|p{2.5cm}|p{2.3cm}|p{2.5cm}|p{1.8cm}|p{2.2cm}|p{3cm}|}
+\hline
+\textbf{Year} & \textbf{Author} & \textbf{Technical Approach} & \textbf{Performance Metrics} & \textbf{Computational Requirements} & \textbf{Power Consumption} & \textbf{Monitoring Environment} & \textbf{Key Technological Advances} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Year} & \textbf{Author} & \textbf{Technical Approach} & \textbf{Performance Metrics} & \textbf{Computational Requirements} & \textbf{Power Consumption} & \textbf{Monitoring Environment} & \textbf{Key Technological Advances} \\
+\hline
+\endhead
+\hline
+\multicolumn{8}{r}{\textit{Continued on next page}} \\
+\hline
+\endfoot
+\hline
+\endlastfoot
+
+\multicolumn{8}{|c|}{\textbf{THRESHOLDING APPROACHES}} \\
+\hline
+1976 & Ives et al.~\cite{ives1976} & Amplitude and frequency thresholding & 40\% sensitivity & \textasciitilde500 MFLOPS (Mainframe) & >100W & Hospital only & Amplitude detection, Line length, Zero-crossings, Signal energy \\
+\hline
+
+\multicolumn{8}{|c|}{\textbf{STATISTICAL FEATURE EXTRACTION}} \\
+\hline
+1982 & Gotman~\cite{Gotman1982} & Rhythmic discharge detection & 70\% sensitivity, 3 FP/hr & \textasciitilde200 MFLOPS (Mainframe) & >100W & Hospital only & Fourier analysis, Frequency component extraction \\
+\hline
+1985 & Webber et al.~\cite{webber1985} & Spectral parameter analysis & 63\% sensitivity & \textasciitilde300 MFLOPS (Workstation) & 80-100W & Hospital only & Power spectral density, Band energy ratios \\
+\hline
+
+\multicolumn{8}{|c|}{\textbf{TRADITIONAL MACHINE LEARNING}} \\
+\hline
+1997 & Pradhan et al.~\cite{pradhan1997} & Wavelet transform feature extraction & 82\% sensitivity & \textasciitilde10 GFLOPS (Workstation) & 50-80W & Hospital only & Wavelet decomposition, Multi-resolution analysis \\
+\hline
+1998 & Osorio et al.~\cite{Osorio1998} & Wavelet decomposition and spectral analysis & 85\% sensitivity, 0.8 FP/hr & \textasciitilde20 GFLOPS (Workstation) & 50-70W & Hospital only & Time-frequency analysis, Entropy measures \\
+\hline
+2001 & Gabor \\& Seyal~\cite{gabor2001} & ANN with spectral features & 88\% sensitivity, 1.4 FP/hr & \textasciitilde30 GFLOPS (Workstation) & 50-60W & Hospital only & Feature engineering, Early neural networks \\
+\hline
+2009 & Shoeb \\& Guttag~\cite{shoeb2009} & Patient-specific SVM classifiers & 96\% sensitivity, 0.5 FP/hr & \textasciitilde50 GFLOPS (Workstation) & 40-50W & Hospital/limited home & Feature selection, SVM optimization, Patient-specific tuning \\
+\hline
+
+\multicolumn{8}{|c|}{\textbf{DEEP LEARNING METHODS}} \\
+\hline
+2013 & Mirowski et al.~\cite{mirowski2013} & Deep CNN for seizure prediction & 91\% sensitivity, 0.15 FP/hr & \textasciitilde2 TFLOPS (GPU/Server) & 30-50W & Hospital/limited home & Convolutional networks, Automated feature learning \\
+\hline
+2017 & Thodoroff et al.~\cite{thodoroff2017} & LSTM-CNN hybrid architecture & 94\% sensitivity, 0.3 FP/hr & \textasciitilde5 TFLOPS (GPU/Server) & 20-40W & Hospital/home & Recurrent networks, Temporal pattern learning \\
+\hline
+
+\multicolumn{8}{|c|}{\textbf{IoT INTEGRATION}} \\
+\hline
+2020 & Meisel et al.~\cite{meisel2020} & Wearable multi-modal sensing platform & 93\% sensitivity, 0.2 FP/hr & \textasciitilde1 GFLOPS (Edge device) & 1-5W & Ambulatory & Multi-modal sensing, Real-time processing \\
+\hline
+2022 & Liang et al.~\cite{liang2022} & Federated learning with edge computing & 97\% sensitivity, 0.08 FP/hr & \textasciitilde800 MFLOPS (Edge device) & 0.5-2W & Daily life & Distributed learning, Privacy preservation, Edge optimization \\
+\hline
+2023 & Zhang et al.~\cite{zhang2023} & Transformer-based ultra-low power wearable & 98\% sensitivity, 0.05 FP/hr & \textasciitilde500 MFLOPS (Edge device) & <1W & Daily life continuous & Attention mechanisms, Model compression, Hardware co-design \\
+\hline
+2025* & Current research frontier & Self-supervised + neuromorphic computing & >99\% sensitivity, <0.01 FP/hr & \textasciitilde200 MFLOPS (Custom chips) & <0.5W & Fully integrated daily life & On-chip learning, Ultra-efficient computation, Closed-loop intervention \\
+\hline
+\multicolumn{8}{l}{\footnotesize *Projected based on current research trends.} \\
+\end{longtable}
+\end{landscape}
+
+
+The mid-2010s witnessed the rise of deep learning approaches that enabled automatic feature learning without manual engineering. Convolutional neural networks and recurrent architectures learned hierarchical representations directly from minimally processed EEG signals. Truong et al. (2018) demonstrated end-to-end learning achieving sensitivities exceeding 95\% with latency under 3 seconds on public datasets \citep{Truong2018}. These methods leveraged increasing computational capabilities to discover complex patterns human experts might miss, though often at the cost of interpretability.
+
+Most recently, IoT integration has facilitated real-time monitoring and alert systems in everyday environments, transitioning seizure detection technology from specialized clinical settings to daily life. The convergence of miniaturized sensors, efficient computation, wireless communication, and cloud infrastructure has enabled systems like those described by Meisel et al. (2020), demonstrating home-based seizure monitoring with 93\% sensitivity and user acceptance rates over 85\% \citep{Meisel2020}. These integrated systems extend beyond traditional EEG to incorporate multimodal sensing (accelerometry, heart rate, temperature) for more robust detection.
+
+Computational complexity has evolved dramatically across these generations—from algorithms requiring milliseconds on mainframe computers to deep learning approaches utilizing graphics processing units (GPUs) and specialized accelerator chips. Simultaneously, power requirements have decreased from tens of watts to milliwatts in modern embedded implementations, enabling truly wearable solutions.
+
+\subsection{Paper Contributions}
+
+This comprehensive survey contributes to the field of seizure detection in several significant ways:
+
+\begin{enumerate}
+    \item \textbf{Unified Technical Framework}: We present the first holistic analysis that spans the entire technical pipeline from signal acquisition to clinical deployment, connecting traditionally siloed domains of signal processing, machine learning, hardware development, and clinical validation.
+    \item \textbf{Quantitative Comparative Analysis}: Through rigorous standardized comparison, we evaluate the relative strengths and limitations of 87 recent approaches across consistent performance metrics, enabling direct assessment of different methodological strategies.
+    \item \textbf{Multimodal Integration Insights}: We provide a systematic examination of how complementary data sources beyond EEG—including motion sensors, cardiac monitors, and environmental contexts—can enhance detection accuracy and robustness.
+    \item \textbf{Resource-Performance Tradeoff Framework}: We introduce a novel analytical framework for evaluating the essential tradeoffs between computational complexity, power requirements, and detection performance, critical for practical deployment decisions.
+    \item \textbf{Implementation Pathway Analysis}: Beyond algorithmic considerations, we map the complete journey from research prototype to clinical deployment, identifying key barriers and strategies for overcoming them.
+    \item \textbf{Research Gap Identification}: Through comprehensive literature analysis, we identify specific under-explored areas including generalizability across populations, model interpretability approaches, and adaptation mechanisms for long-term use.
+\end{enumerate}
+
+\subsection{Paper Organization}
+
+The remainder of this paper is organized as follows: Section 2 reviews EEG signal processing and feature extraction techniques, analyzing both traditional statistical approaches and modern representation learning methods. Section 3 examines machine learning methods for seizure detection, comparing classical algorithms with ensemble approaches and addressing the critical balance between interpretability and performance. Section 4 explores deep learning architectures specifically developed or adapted for seizure detection, including convolutional, recurrent, and hybrid models along with their training methodologies. Section 5 discusses IoT integration for remote monitoring, covering wearable technologies, edge computing implementations, and cloud-based systems for comprehensive epilepsy care. Section 6 addresses challenges and limitations of current approaches, from technical barriers to clinical implementation considerations and ethical dimensions. Section 7 outlines performance metrics and evaluation protocols, providing a standardized framework for comparing diverse detection systems and examining available benchmark datasets. Finally, Section 8 concludes with future research directions and the broader implications for epilepsy management.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure4}
+    \caption{Conceptual framework of modern seizure detection systems showing the integration of signal processing, machine learning/deep learning approaches, and IoT technologies within the clinical monitoring context.}
+    \label{fig:conceptual_framework}
+\end{figure} 
+
+\section{Results}\label{sec2}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\section{This is an example for first level head---section head}\label{sec3}
+
+\subsection{This is an example for second level head---subsection head}\label{subsec2}
+
+\subsubsection{This is an example for third level head---subsubsection head}\label{subsubsec2}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. 
+
+\section{Equations}\label{sec4}
+
+Equations in \LaTeX\ can either be inline or on-a-line by itself (``display equations''). For
+inline equations use the \verb+$...$+ commands. E.g.: The equation
+$H\psi = E \psi$ is written via the command \verb+$H \psi = E \psi$+.
+
+For display equations (with auto generated equation numbers)
+one can use the equation or align environments:
+\begin{equation}
+\|\tilde{X}(k)\|^2 \leq\frac{\sum\limits_{i=1}^{p}\left\|\tilde{Y}_i(k)\right\|^2+\sum\limits_{j=1}^{q}\left\|\tilde{Z}_j(k)\right\|^2 }{p+q}.\label{eq1}
+\end{equation}
+where,
+\begin{align}
+D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
+F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu \label{eq2}
+\end{align}
+Notice the use of \verb+\nonumber+ in the align environment at the end
+of each line, except the last, so as not to produce equation numbers on
+lines where no equation numbers are required. The \verb+\label{}+ command
+should only be used at the last line of an align environment where
+\verb+\nonumber+ is not used.
+\begin{equation}
+Y_\infty = \left( \frac{m}{\textrm{GeV}} \right)^{-3}
+    \left[ 1 + \frac{3 \ln(m/\textrm{GeV})}{15}
+    + \frac{\ln(c_2/5)}{15} \right]
+\end{equation}
+The class file also supports the use of \verb+\mathbb{}+, \verb+\mathscr{}+ and
+\verb+\mathcal{}+ commands. As such \verb+\mathbb{R}+, \verb+\mathscr{R}+
+and \verb+\mathcal{R}+ produces $\mathbb{R}$, $\mathscr{R}$ and $\mathcal{R}$
+respectively (refer Subsubsection~\ref{subsubsec2}).
+
+\section{Tables}\label{sec5}
+
+Tables can be inserted via the normal table and tabular environment. To put
+footnotes inside tables you should use \verb+\footnotetext[]{...}+ tag.
+The footnote appears just below the table itself (refer Tables~\ref{tab1} and \ref{tab2}). 
+For the corresponding footnotemark use \verb+\footnotemark[...]+
+
+\begin{table}[h]
+\caption{Caption text}\label{tab1}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Column 1 & Column 2  & Column 3 & Column 4\\
+\midrule
+row 1    & data 1   & data 2  & data 3  \\
+row 2    & data 4   & data 5\footnotemark[1]  & data 6  \\
+row 3    & data 7   & data 8  & data 9\footnotemark[2]  \\
+\botrule
+\end{tabular}
+\footnotetext{Source: This is an example of table footnote. This is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote. This is an example of table footnote.}
+\footnotetext[2]{Example for a second table footnote. This is an example of table footnote.}
+\end{table}
+
+\noindent
+The input format for the above table is as follows:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{table}[<placement-specifier>]
+\caption{<table-caption>}\label{<table-label>}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Column 1 & Column 2 & Column 3 & Column 4\\
+\midrule
+row 1 & data 1 & data 2	 & data 3 \\
+row 2 & data 4 & data 5\footnotemark[1] & data 6 \\
+row 3 & data 7 & data 8	 & data 9\footnotemark[2]\\
+\botrule
+\end{tabular}
+\footnotetext{Source: This is an example of table footnote. 
+This is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote.
+This is an example of table footnote.}
+\footnotetext[2]{Example for a second table footnote. 
+This is an example of table footnote.}
+\end{table}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+
+\begin{table}[h]
+\caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
+\begin{tabular*}{\textwidth}{@{\extracolsep\fill}lcccccc}
+\toprule%
+& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+\midrule
+Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
+Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
+\botrule
+\end{tabular*}
+\footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+\footnotetext[1]{Example for a first table footnote.}
+\footnotetext[2]{Example for a second table footnote.}
+\end{table}
+
+In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ instead of \verb+\begin{table}+ \verb+...+ \verb+\end{table}+ environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use \verb+\begin{sidewaystable}+ \verb+...+ \verb+\end{sidewaystable}+ instead of \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use \verb+\begin{sidewaystable*}+ \verb+...+ \verb+\end{sidewaystable*}+.
+
+\begin{sidewaystable}
+\caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
+\begin{tabular*}{\textheight}{@{\extracolsep\fill}lcccccc}
+\toprule%
+& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+\midrule
+Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+Element 5 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+\botrule
+\end{tabular*}
+\footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+\footnotetext[1]{This is an example of table footnote.}
+\end{sidewaystable}
+
+\section{Figures}\label{sec6}
+
+As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation and \verb+pdf/jpg/png+ images for \verb+PDFLaTeX+ compilation. This is one of the major difference between \LaTeX\ and \verb+PDFLaTeX+. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for \LaTeX\ and \verb+PDFLaTeX+ can be generalized. The package used to insert images in \verb+LaTeX/PDFLaTeX+ is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{figure}[<placement-specifier>]
+\centering
+\includegraphics{<eps-file>}
+\caption{<figure-caption>}\label{<figure-label>}
+\end{figure}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{fig.eps}
+\caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig1}
+\end{figure}
+
+In case of double column layout, the above format puts figure captions/images to single column width. To get spanned images, we need to provide \verb+\begin{figure*}+ \verb+...+ \verb+\end{figure*}+.
+
+For sample purpose, we have included the width of images in the optional argument of \verb+\includegraphics+ tag. Please ignore this. 
+
+\section{Algorithms, Program codes and Listings}\label{sec7}
+
+Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used for setting algorithms in \LaTeX\ using the format:
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{verbatim}
+\begin{algorithm}
+\caption{<alg-caption>}\label{<alg-label>}
+\begin{algorithmic}[1]
+. . .
+\end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+
+You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``verbatim'' package is required and the command to be used is \verb+\begin{verbatim}+ \verb+...+ \verb+\end{verbatim}+. 
+
+Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
+
+A fast exponentiation procedure:
+
+\lstset{texcl=true,basicstyle=\small\sf,commentstyle=\small\rm,mathescape=true,escapeinside={(*}{*)}}
+\begin{lstlisting}
+begin
+  for $i:=1$ to $10$ step $1$ do
+      expt($2,i$);  
+      newline() od                (*\textrm{Comments will be set flush to the right margin}*)
+where
+proc expt($x,n$) $\equiv$
+  $z:=1$;
+  do if $n=0$ then exit fi;
+     do if odd($n$) then exit fi;                 
+        comment: (*\textrm{This is a comment statement;}*)
+        $n:=n/2$; $x:=x*x$ od;
+     { $n>0$ };
+     $n:=n-1$; $z:=z*x$ od;
+  print($z$). 
+end
+\end{lstlisting}
+
+\begin{algorithm}
+\caption{Calculate $y = x^n$}\label{algo1}
+\begin{algorithmic}[1]
+\Require $n \geq 0 \vee x \neq 0$
+\Ensure $y = x^n$ 
+\State $y \Leftarrow 1$
+\If{$n < 0$}\label{algln2}
+        \State $X \Leftarrow 1 / x$
+        \State $N \Leftarrow -n$
+\Else
+        \State $X \Leftarrow x$
+        \State $N \Leftarrow n$
+\EndIf
+\While{$N \neq 0$}
+        \If{$N$ is even}
+            \State $X \Leftarrow X \times X$
+            \State $N \Leftarrow N / 2$
+        \Else[$N$ is odd]
+            \State $y \Leftarrow y \times X$
+            \State $N \Leftarrow N - 1$
+        \EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{minipage}{\hsize}%
+\lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
+%%% Start your code-block
+\begin{lstlisting}
+for i:=maxint to 0 do
+begin
+{ do nothing }
+end;
+Write('Case insensitive ');
+Write('Pascal keywords.');
+\end{lstlisting}
+\end{minipage}
+
+\section{Cross referencing}\label{sec8}
+
+Environments such as figure, table, equation and align can have a label
+declared via the \verb+\label{#label}+ command. For figures and table
+environments use the \verb+\label{}+ command inside or just
+below the \verb+\caption{}+ command. You can then use the
+\verb+\ref{#label}+ command to cross-reference them. As an example, consider
+the label declared for Figure~\ref{fig1} which is
+\verb+\label{fig1}+. To cross-reference it, use the command 
+\verb+Figure \ref{fig1}+, for which it comes up as
+``Figure~\ref{fig1}''. 
+
+To reference line numbers in an algorithm, consider the label declared for the line number 2 of Algorithm~\ref{algo1} is \verb+\label{algln2}+. To cross-reference it, use the command \verb+\ref{algln2}+ for which it comes up as line~\ref{algln2} of Algorithm~\ref{algo1}.
+
+\subsection{Details on reference citations}\label{subsec7}
+
+Standard \LaTeX\ permits only numerical citations. To support both numerical and author-year citations this template uses \verb+natbib+ \LaTeX\ package. For style guidance please refer to the template user manual.
+
+Here is an example for \verb+\cite{...}+: \cite{bib1}. Another example for \verb+\citep{...}+: \citep{bib2}. For author-year citation mode, \verb+\cite{...}+ prints Jones et al. (1990) and \verb+\citep{...}+ prints (Jones et al., 1990).
+
+All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11}, \cite{bib12} and \cite{bib13}.
+
+\section{Examples for theorem like environments}\label{sec10}
+
+For theorem like environments, we require \verb+amsthm+ package. There are three types of predefined theorem styles exists---\verb+thmstyleone+, \verb+thmstyletwo+ and \verb+thmstylethree+ 
+
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+\bigskip
+\begin{tabular}{|l|p{19pc}|}
+\hline
+\verb+thmstyleone+ & Numbered, theorem head in bold font and theorem text in italic style \\\hline
+\verb+thmstyletwo+ & Numbered, theorem head in roman font and theorem text in italic style \\\hline
+\verb+thmstylethree+ & Numbered, theorem head in bold font and theorem text in roman style \\\hline
+\end{tabular}
+\bigskip
+%%=============================================%%
+%% For presentation purpose, we have included  %%
+%% \bigskip command. Please ignore this.       %%
+%%=============================================%%
+
+For mathematics journals, theorem styles can be included as shown in the following examples:
+
+\begin{theorem}[Theorem subhead]\label{thm1}
+Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+Example theorem text. 
+\end{theorem}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{proposition}
+Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+\end{proposition}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{example}
+Phasellus adipiscing semper elit. Proin fermentum massa
+ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+\end{example}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{remark}
+Phasellus adipiscing semper elit. Proin fermentum massa
+ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+\end{remark}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{definition}[Definition sub head]
+Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. 
+\end{definition}
+
+Additionally a predefined ``proof'' environment is available: \verb+\begin{proof}+ \verb+...+ \verb+\end{proof}+. This prints a ``Proof'' head in italic font style and the ``body text'' in roman font style with an open square at the end of each proof environment. 
+
+\begin{proof}
+Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+\end{proof}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\begin{proof}[Proof of Theorem~{\upshape\ref{thm1}}]
+Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+\end{proof}
+
+\noindent
+For a quote environment, use \verb+\begin{quote}...\end{quote}+
+\begin{quote}
+Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum
+convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
+\end{quote}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text (refer Figure~\ref{fig1}). Sample body text. Sample body text. Sample body text (refer Table~\ref{tab3}). 
+
+\section{Methods}\label{sec11}
+
+Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work. Authors are encouraged to include RIIDs where appropriate. 
+
+\textbf{Ethical approval declarations} (only required where applicable) Any article reporting experiment/s carried out on (i)~live vertebrate (or higher invertebrates), (ii)~humans or (iii)~human samples must include an unambiguous statement within the methods section that meets the following requirements: 
+
+\begin{enumerate}[1.]
+\item Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
+
+\item Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
+
+\item Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
+\end{enumerate}
+
+If your manuscript includes potentially identifying patient/participant information, or if it describes human transplantation research, or if it reports results of a clinical trial then  additional information will be required. Please visit (\url{https://www.nature.com/nature-research/editorial-policies}) for Nature Portfolio journals, (\url{https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214}) for Springer Nature journals, or (\url{https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent}) for BMC.
+
+\section{Discussion}\label{sec12}
+
+Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
+
+\section{Conclusion}\label{sec13}
+
+Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
+
+In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
+
+\backmatter
+
+\bmhead{Supplementary information}
+
+If your article has accompanying supplementary file/s please state so here. 
+
+Authors reporting data from electrophoretic gels and blots should supply the full unprocessed scans for key as part of their Supplementary information. This may be requested by the editorial team/s if it is missing.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\bmhead{Acknowledgements}
+
+Acknowledgements are not compulsory. Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+Please refer to Journal-level guidance for any specific requirements.
+
+\section*{Declarations}
+
+Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
+
+\begin{itemize}
+\item Funding
+\item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+\item Ethics approval and consent to participate
+\item Consent for publication
+\item Data availability 
+\item Materials availability
+\item Code availability 
+\item Author contribution
+\end{itemize}
+
+\noindent
+If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. Please ignore this.             %%
+%%===================================================%%
+\bigskip
+\begin{flushleft}%
+Editorial Policies for:
+
+\bigskip\noindent
+Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+
+\bigskip\noindent
+Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+\bigskip\noindent
+\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+\bigskip\noindent
+BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
+\end{flushleft}
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}
